@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio profissional de desenvolvimento web — projetos, interfaces e experiências digitais.">
+  <title>Portfólio | Desenvolvimento Web</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root{
+      --navy:#19264c;
+      --navy-2:#111d3e;
+      --navy-3:#223362;
+      --cyan:#01fff5;
+      --cyan-soft:#a9fffc;
+      --white:#fff;
+      --text:#f4f8ff;
+      --muted:#b8c3da;
+      --line:rgba(255,255,255,.14);
+      --shadow:0 24px 70px rgba(0,0,0,.24);
+    }
+
+    *{box-sizing:border-box;scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--navy);
+      color:var(--text);
+      font-family:Inter,Arial,sans-serif;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+    .grid{background:none !important;}
+    .glow{
+      position:fixed;inset:0;pointer-events:none;z-index:-1;
+      background:
+        radial-gradient(circle at 15% 15%,rgba(1,255,245,.08),transparent 27%),
+        radial-gradient(circle at 88% 30%,rgba(70,110,255,.10),transparent 30%),
+        radial-gradient(circle at 55% 95%,rgba(1,255,245,.06),transparent 28%);
+    }
+
+    header{
+      position:sticky;top:0;z-index:100;
+      background:rgba(25,38,76,.97);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px;
+    }
+    .brand{
+      font-family:Outfit,sans-serif;font-size:20px;font-weight:800;letter-spacing:.04em;
+    }
+    .brand span{color:var(--cyan)}
+    nav{display:flex;gap:28px;color:#dce5f7;font-size:14px;font-weight:600}
+    nav a{transition:.2s}
+    nav a:hover{color:var(--cyan)}
+    .nav-cta{
+      padding:11px 17px;border-radius:12px;background:var(--cyan);
+      color:#061326;font-weight:800;box-shadow:0 8px 28px rgba(1,255,245,.16);
+    }
+
+    section{position:relative}
+    .hero{min-height:720px;display:flex;align-items:center}
+    .hero-content{padding:100px 0 86px}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;
+      color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 16px var(--cyan)}
+    h1,h2,h3{font-family:Outfit,sans-serif}
+    h1{
+      margin:18px 0 0;font-size:clamp(48px,8vw,92px);
+      line-height:.95;letter-spacing:-.045em;max-width:980px;
+    }
+    .accent{color:var(--cyan)}
+    .hero p{
+      max-width:720px;margin:26px 0 0;color:var(--muted);
+      font-size:18px;line-height:1.75;
+    }
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      min-height:50px;padding:0 20px;border-radius:12px;font-weight:800;
+      transition:.25s;border:1px solid transparent;
+    }
+    .btn:hover{transform:translateY(-3px)}
+    .btn-primary{background:var(--cyan);color:#061326}
+    .btn-secondary{background:rgba(255,255,255,.06);border-color:var(--line)}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:70px;max-width:820px}
+    .stat{
+      padding:20px;border:1px solid var(--line);border-radius:18px;
+      background:rgba(17,29,62,.62);
+    }
+    .stat strong{font-family:Outfit;font-size:26px;color:var(--cyan)}
+    .stat small{display:block;margin-top:7px;color:var(--muted);line-height:1.45}
+
+    .section{padding:105px 0;border-top:1px solid var(--line)}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:42px}
+    .section-title{margin:8px 0 0;font-size:clamp(38px,5vw,58px);line-height:1}
+    .section-copy{max-width:560px;color:var(--muted);line-height:1.7}
+
+    .about-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:70px}
+    .about-text{color:#d5def0;font-size:17px;line-height:1.85}
+    .skills{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+    .tag{
+      border:1px solid var(--line);background:rgba(255,255,255,.045);
+      padding:9px 12px;border-radius:10px;font-size:13px;color:#e6edfb;
+    }
+
+    .project{
+      border:1px solid var(--line);border-radius:28px;overflow:hidden;
+      background:linear-gradient(145deg,rgba(34,51,98,.72),rgba(17,29,62,.9));
+      box-shadow:var(--shadow);
+    }
+    .project-preview{
+      min-height:430px;padding:26px;
+      background:
+        linear-gradient(135deg,rgba(1,255,245,.08),transparent 35%),
+        linear-gradient(180deg,#223362,#19264c);
+    }
+    .browser{
+      height:100%;min-height:378px;border:1px solid rgba(255,255,255,.15);
+      border-radius:20px;overflow:hidden;background:#19264c;
+      box-shadow:0 22px 60px rgba(0,0,0,.28);
+    }
+    .browser-bar{
+      height:38px;display:flex;align-items:center;gap:7px;padding:0 14px;
+      background:#111d3e;border-bottom:1px solid rgba(255,255,255,.1);
+    }
+    .browser-bar i{font-size:9px}
+    .browser-url{margin-left:10px;height:18px;flex:1;max-width:300px;border-radius:5px;background:rgba(255,255,255,.07)}
+    .mock{
+      padding:45px 42px;
+      background:
+        radial-gradient(circle at 85% 25%,rgba(1,255,245,.13),transparent 26%),
+        #19264c;
+    }
+    .mock-kicker{color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:.14em}
+    .mock h3{font-size:clamp(30px,4vw,52px);line-height:1;margin:15px 0 0}
+    .mock h3 span{color:var(--cyan)}
+    .mock-lines{margin-top:20px;display:grid;gap:8px;max-width:560px}
+    .mock-line{height:9px;border-radius:8px;background:rgba(255,255,255,.12)}
+    .mock-line.short{width:72%}
+    .mock-actions{display:flex;gap:10px;margin-top:28px}
+    .mock-button{height:42px;width:125px;border-radius:11px;background:var(--cyan)}
+    .mock-button.alt{width:145px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1)}
+
+    .project-info{padding:38px;display:grid;grid-template-columns:1.1fr 1fr;gap:45px}
+    .project-info h3{font-size:28px;margin:0}
+    .project-info p{color:var(--muted);line-height:1.75}
+    .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .feature{
+      padding:18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.035)
+    }
+    .feature i{color:var(--cyan);font-size:18px}
+    .feature strong{display:block;margin-top:10px}
+    .feature span{display:block;color:#aebbd4;font-size:13px;line-height:1.5;margin-top:5px}
+
+    .case{
+      margin-top:16px;padding:28px;border:1px solid var(--line);border-radius:22px;
+      background:rgba(17,29,62,.55);
+    }
+    .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:20px}
+    .case-item h4{margin:0;font-family:Outfit;font-size:19px}
+    .case-item p{font-size:14px;margin:9px 0 0;color:var(--muted);line-height:1.65}
+
+    .process{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+    .step{
+      padding:20px;border:1px solid var(--line);border-radius:18px;background:rgba(17,29,62,.58)
+    }
+    .step b{color:var(--cyan);font-family:Outfit;font-size:13px}
+    .step h3{margin:20px 0 6px;font-size:18px}
+    .step p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
+
+    .contact{
+      text-align:center;padding:75px 30px;border:1px solid var(--line);
+      border-radius:28px;background:
+        radial-gradient(circle at 50% 0,rgba(1,255,245,.10),transparent 36%),
+        rgba(17,29,62,.72);
+    }
+    .contact h2{font-size:clamp(40px,6vw,68px);margin:10px 0 0}
+    .contact p{max-width:650px;margin:18px auto 0;color:var(--muted);line-height:1.7}
+    .contact-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:30px}
+
+    footer{padding:32px 0;border-top:1px solid var(--line);color:#9aa8c2;font-size:13px}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .footer-inner span:first-child{color:#d9e3f4}
+
+    @media(max-width:900px){
+      nav{display:none}
+      .about-grid,.project-info{grid-template-columns:1fr}
+      .process{grid-template-columns:repeat(3,1fr)}
+      .case-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:650px){
+      .wrap{width:min(100% - 28px,1180px)}
+      .nav{height:68px}
+      .nav-cta{padding:9px 12px;font-size:12px}
+      .hero{min-height:auto}
+      .hero-content{padding:75px 0 65px}
+      h1{font-size:50px}
+      .hero p{font-size:16px}
+      .stats{grid-template-columns:1fr}
+      .section{padding:75px 0}
+      .section-head{display:block}
+      .section-copy{margin-top:18px}
+      .project-preview{padding:13px}
+      .mock{padding:34px 24px}
+      .project-info{padding:25px}
+      .feature-grid{grid-template-columns:1fr}
+      .process{grid-template-columns:1fr 1fr}
+      .contact{padding:55px 20px}
+    }
+  
+    .site-full-wrap{
+      border:1px solid var(--line);
+      border-radius:28px;
+      overflow:hidden;
+      background:#19264c;
+      box-shadow:var(--shadow);
+    }
+    .site-full-wrap iframe{
+      width:100%;
+      height:980px;
+      display:block;
+      border:0;
+      background:#0B132B;
+    }
+    .site-full-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
+    }
+    @media(max-width:650px){
+      .site-full-wrap iframe{height:820px}
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="glow"></div>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#inicio">PORTFÓLIO<span>.</span></a>
+      <nav aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#processo">Processo</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a class="nav-cta" href="#contato">Vamos conversar</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="wrap hero-content">
+        <div class="eyebrow"><span class="dot"></span> Desenvolvimento Web • Portfólio</div>
+        <h1>Criando experiências <span class="accent">digitais que conectam.</span></h1>
+        <p>
+          Sites modernos, responsivos e pensados para transformar ideias em experiências digitais
+          claras, bonitas e funcionais — com atenção ao visual, à navegação e aos detalhes.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#projetos">Ver projeto <i class="fa-solid fa-arrow-down"></i></a>
+          <a class="btn btn-secondary" href="#contato">Entrar em contato <i class="fa-regular fa-paper-plane"></i></a>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><strong>01</strong><small>Projeto em destaque<br><b>TurOceania</b></small></div>
+          <div class="stat"><strong>UI</strong><small>Foco em interface<br><b>Visual moderno e responsivo</b></small></div>
+          <div class="stat"><strong>∞</strong><small>Estrutura preparada<br><b>Para novos projetos</b></small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="section">
+      <div class="wrap">
+        <div class="about-grid">
+          <div>
+            <div class="eyebrow">Sobre o trabalho</div>
+            <h2 class="section-title">Do conceito<br>ao site.</h2>
+          </div>
+          <div>
+            <div class="about-text">
+              Este portfólio apresenta um projeto desenvolvido com atenção à experiência do usuário,
+              organização visual, responsividade e interações no navegador.
+              <br><br>
+              O primeiro case é a <strong>TurOceania</strong>, uma experiência digital criada para
+              apresentar turismo náutico na Região dos Lagos, reunindo passeios, destinos, hospedagem,
+              gastronomia, roteiro personalizado e canais de contato.
+            </div>
+            <div class="skills">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Tailwind CSS</span>
+              <span class="tag">Font Awesome</span>
+              <span class="tag">Responsive Design</span>
+              <span class="tag">UI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Projeto em destaque</div>
+            <h2 class="section-title">TurOceania</h2>
+          </div>
+          <p class="section-copy">
+            Uma interface de turismo náutico com catálogo de experiências, roteiro personalizado,
+            reservas e contato comercial.
+          </p>
+        </div>
+
+        <article class="project">
+          <div class="project-preview">
+            <div class="browser">
+              <div class="browser-bar">
+                <i style="color:#ff6b6b" class="fa-solid fa-circle"></i>
+                <i style="color:#ffd166" class="fa-solid fa-circle"></i>
+                <i style="color:#5ee881" class="fa-solid fa-circle"></i>
+                <div class="browser-url"></div>
+              </div>
+              <div class="mock">
+                <div class="mock-kicker">TURISMO NÁUTICO • EXPERIÊNCIAS EXCLUSIVAS</div>
+                <h3>Explore o Caribe Brasileiro<br><span>em Outro Nível</span></h3>
+                <div class="mock-lines">
+                  <div class="mock-line"></div>
+                  <div class="mock-line short"></div>
+                </div>
+                <div class="mock-actions">
+                  <div class="mock-button"></div>
+                  <div class="mock-button alt"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-info">
+            <div>
+              <h3>Sobre o projeto</h3>
+              <p>
+                O site foi estruturado como uma vitrine digital para turismo náutico, apresentando
+                destinos como Arraial do Cabo, Búzios e Cabo Frio, além de experiências, hospedagem,
+                gastronomia e montagem de roteiros.
+              </p>
+              <div class="skills">
+                <span class="tag">HTML5</span>
+                <span class="tag">Tailwind CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Font Awesome</span>
+              </div>
+            </div>
+
+            <div class="feature-grid">
+              <div class="feature"><i class="fa-solid fa-compass"></i><strong>Catálogo</strong><span>Filtros e cards de experiências.</span></div>
+              <div class="feature"><i class="fa-solid fa-wand-magic-sparkles"></i><strong>Roteiro</strong><span>Simulação de pacote personalizado.</span></div>
+              <div class="feature"><i class="fa-brands fa-whatsapp"></i><strong>Contato</strong><span>Fluxos pensados para atendimento.</span></div>
+              <div class="feature"><i class="fa-solid fa-mobile-screen-button"></i><strong>Responsivo</strong><span>Interface adaptada para telas menores.</span></div>
+            </div>
+          </div>
+        </article>
+
+        <div class="case">
+          <div class="eyebrow">Case study</div>
+          <div class="case-grid">
+            <div class="case-item">
+              <h4>Objetivo</h4>
+              <p>Criar uma presença digital sofisticada para apresentar serviços e facilitar o contato comercial.</p>
+            </div>
+            <div class="case-item">
+              <h4>Desafio</h4>
+              <p>Organizar muitas opções de turismo em uma experiência visual simples e navegável.</p>
+            </div>
+            <div class="case-item">
+              <h4>Resultado</h4>
+              <p>Uma página completa com seções, interações, filtros, modais e simulador de roteiro.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:10px">
+          <a class="btn btn-primary" href="https://www.instagram.com/turoceania/" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram"></i> @turoceania
+          </a>
+          <a class="btn btn-secondary" href="https://www.instagram.com/turoceania/" target="_blank" rel="noopener">
+            Ver presença da marca
+          </a>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="site-completo" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Site completo</div>
+            <h2 class="section-title">TurOceania, por inteiro.</h2>
+          </div>
+          <p class="section-copy">
+            Navegue pelo projeto original diretamente dentro deste portfólio e veja a experiência
+            completa criada para a TurOceania.
+          </p>
+        </div>
+
+        <div class="site-full-wrap">
+          <iframe
+            title="Site completo TurOceania"
+            srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;pt-BR&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;TurOceania | Turismo Náutico &amp; Experiências VIP na Região dos Lagos&lt;/title&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;Turismo náutico, passeios, lanchas privativas, escunas, jet skis, hospedagem e experiências na Região dos Lagos.&quot;&gt;
+    &lt;meta name=&quot;theme-color&quot; content=&quot;#0B132B&quot;&gt;
+    &lt;meta property=&quot;og:title&quot; content=&quot;TurOceania | Turismo Náutico &amp; Experiências VIP&quot;&gt;
+    &lt;meta property=&quot;og:description&quot; content=&quot;Explore Arraial do Cabo, Búzios e Cabo Frio com experiências náuticas e atendimento personalizado.&quot;&gt;
+    &lt;meta property=&quot;og:type&quot; content=&quot;website&quot;&gt;
+    &lt;!-- Tailwind CSS --&gt;
+    &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+    &lt;!-- Font Awesome Icons --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&quot;&gt;
+    &lt;!-- Google Fonts Inter &amp; Outfit --&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Outfit:wght@400;600;700;800&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;!-- QRCode JS Generator --&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js&quot;&gt;&lt;/script&gt;
+
+    &lt;script&gt;
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            teal: &#x27;#00A896&#x27;,
+                            ocean: &#x27;#028090&#x27;,
+                            navy: &#x27;#0B132B&#x27;,
+                            darkBlue: &#x27;#1C2541&#x27;,
+                            coral: &#x27;#FF6F59&#x27;,
+                            coralHover: &#x27;#E55A44&#x27;,
+                            gold: &#x27;#FFD166&#x27;,
+                            glass: &#x27;rgba(28, 37, 65, 0.75)&#x27;,
+                            glassBorder: &#x27;rgba(0, 168, 150, 0.3)&#x27;
+                        }
+                    },
+                    fontFamily: {
+                        sans: [&#x27;Inter&#x27;, &#x27;sans-serif&#x27;],
+                        heading: [&#x27;Outfit&#x27;, &#x27;sans-serif&#x27;]
+                    }
+                }
+            }
+        }
+    &lt;/script&gt;
+
+    &lt;style&gt;
+        body {
+            font-family: &#x27;Inter&#x27;, sans-serif;
+            background-color: #0B132B;
+            color: #F4F4F9;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: &#x27;Outfit&#x27;, sans-serif;
+        }
+
+        .glass-panel {
+            background: rgba(28, 37, 65, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 168, 150, 0.25);
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: #00A896;
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px -10px rgba(0, 168, 150, 0.3);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00A896 0%, #3a86ff 50%, #FF6F59 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glow-button {
+            box-shadow: 0 0 20px rgba(255, 111, 89, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .glow-button:hover {
+            box-shadow: 0 0 30px rgba(255, 111, 89, 0.7);
+            transform: scale(1.02);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B132B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #028090;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00A896;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+    &lt;/style&gt;
+&lt;style&gt;
+@media print {
+  body &gt; *:not(#voucher-modal) { display:none !important; }
+  #voucher-modal { position:static !important; display:block !important; background:#fff !important; }
+  #voucher-modal &gt; div { box-shadow:none !important; border:0 !important; max-width:100% !important; }
+  #voucher-modal button { display:none !important; }
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;relative min-h-screen text-slate-100 selection:bg-brand-teal selection:text-white&quot;&gt;
+
+    &lt;!-- Top Information Bar --&gt;
+    &lt;div class=&quot;bg-brand-darkBlue border-b border-brand-teal/20 py-2 px-4 text-xs md:text-sm font-medium&quot;&gt;
+        &lt;div class=&quot;max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2&quot;&gt;
+            &lt;div class=&quot;flex items-center space-x-3 overflow-x-auto w-full md:w-auto py-1 whitespace-nowrap&quot;&gt;
+                &lt;span class=&quot;text-brand-teal font-bold flex items-center gap-1.5&quot;&gt;&lt;i class=&quot;fa-solid fa-water text-brand-teal&quot;&gt;&lt;/i&gt; Informações Náuticas:&lt;/span&gt;
+                &lt;span id=&quot;status-arraial&quot; class=&quot;inline-flex items-center px-2 py-0.5 rounded-full text-xs bg-emerald-500/20 text-emerald-400 border border-emerald-500/30&quot;&gt;
+                    &lt;i class=&quot;fa-solid fa-circle text-[8px] mr-1&quot;&gt;&lt;/i&gt; Arraial: Aberto
+                &lt;/span&gt;
+                &lt;span id=&quot;status-buzios&quot; class=&quot;inline-flex items-center px-2 py-0.5 rounded-full text-xs bg-emerald-500/20 text-emerald-400 border border-emerald-500/30&quot;&gt;
+                    &lt;i class=&quot;fa-solid fa-circle text-[8px] mr-1&quot;&gt;&lt;/i&gt; Búzios: Aberto
+                &lt;/span&gt;
+                &lt;span id=&quot;status-cabofrio&quot; class=&quot;inline-flex items-center px-2 py-0.5 rounded-full text-xs bg-emerald-500/20 text-emerald-400 border border-emerald-500/30&quot;&gt;
+                    &lt;i class=&quot;fa-solid fa-circle text-[8px] mr-1&quot;&gt;&lt;/i&gt; Cabo Frio: Aberto
+                &lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;flex items-center space-x-4 text-slate-300 text-xs&quot;&gt;
+                &lt;span&gt;&lt;i class=&quot;fa-solid fa-sun text-yellow-400 mr-1&quot;&gt;&lt;/i&gt; Região dos Lagos&lt;/span&gt;
+                &lt;span class=&quot;hidden md:inline&quot;&gt;&lt;i class=&quot;fa-brands fa-whatsapp text-emerald-400 mr-1&quot;&gt;&lt;/i&gt; Suporte VIP 24h&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Main Navigation Header --&gt;
+    &lt;header class=&quot;sticky top-0 z-40 glass-panel border-b border-brand-teal/20 backdrop-blur-md&quot;&gt;
+        &lt;div class=&quot;max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between&quot;&gt;
+            &lt;!-- Brand Logo --&gt;
+            &lt;a href=&quot;#&quot; class=&quot;flex items-center space-x-3 group&quot;&gt;
+                &lt;div class=&quot;w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-ocean to-brand-teal p-0.5 shadow-lg shadow-brand-teal/20 group-hover:scale-105 transition-transform&quot;&gt;
+                    &lt;div class=&quot;w-full h-full bg-brand-navy rounded-[14px] flex items-center justify-center&quot;&gt;
+                        &lt;i class=&quot;fa-solid fa-ship text-2xl text-brand-teal group-hover:text-brand-coral transition-colors&quot;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;flex flex-col&quot;&gt;
+                    &lt;span class=&quot;text-2xl font-black tracking-wider text-white font-heading&quot;&gt;TUR&lt;span class=&quot;text-brand-teal&quot;&gt;OCEANIA&lt;/span&gt;&lt;/span&gt;
+                    &lt;span class=&quot;text-[10px] uppercase tracking-widest text-slate-400 font-semibold&quot;&gt;Turismo Náutico &amp; VIP&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/a&gt;
+
+            &lt;!-- Desktop Menu Links --&gt;
+            &lt;nav class=&quot;hidden lg:flex items-center space-x-8 text-sm font-medium&quot;&gt;
+                &lt;a href=&quot;#hero&quot; class=&quot;hover:text-brand-teal transition-colors&quot;&gt;Início&lt;/a&gt;
+                &lt;a href=&quot;#experiencias&quot; class=&quot;hover:text-brand-teal transition-colors&quot;&gt;Passeios &amp; Frota&lt;/a&gt;
+                &lt;a href=&quot;#pousadas&quot; class=&quot;hover:text-brand-teal transition-colors&quot;&gt;Pousadas &amp; Gastronomia&lt;/a&gt;
+                &lt;a href=&quot;#roteiro&quot; class=&quot;hover:text-brand-teal transition-colors&quot;&gt;Montar Roteiro&lt;/a&gt;
+                &lt;a href=&quot;#depoimentos&quot; class=&quot;hover:text-brand-teal transition-colors&quot;&gt;Avaliações&lt;/a&gt;
+                &lt;a href=&quot;#contato&quot; class=&quot;hover:text-brand-teal transition-colors&quot;&gt;Contato&lt;/a&gt;
+            &lt;/nav&gt;
+
+            &lt;!-- Actions --&gt;
+            &lt;div class=&quot;hidden sm:flex items-center space-x-4&quot;&gt;
+                &lt;button onclick=&quot;openBookingModal()&quot; class=&quot;bg-brand-coral hover:bg-brand-coralHover text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 shadow-lg shadow-brand-coral/20 flex items-center space-x-2&quot;&gt;
+                    &lt;i class=&quot;fa-solid fa-calendar-check&quot;&gt;&lt;/i&gt;
+                    &lt;span&gt;Reserva Rápida&lt;/span&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Mobile menu button --&gt;
+            &lt;button type=&quot;button&quot; aria-label=&quot;Abrir menu&quot; id=&quot;mobile-menu-btn&quot; class=&quot;lg:hidden text-slate-300 hover:text-white p-2 text-2xl&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-bars&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Mobile Dropdown Navigation --&gt;
+        &lt;div id=&quot;mobile-menu&quot; class=&quot;hidden lg:hidden bg-brand-darkBlue/95 border-b border-brand-teal/20 px-6 py-6 space-y-4&quot;&gt;
+            &lt;a href=&quot;#hero&quot; class=&quot;block py-2 text-slate-200 hover:text-brand-teal font-medium border-b border-slate-800&quot;&gt;Início&lt;/a&gt;
+            &lt;a href=&quot;#experiencias&quot; class=&quot;block py-2 text-slate-200 hover:text-brand-teal font-medium border-b border-slate-800&quot;&gt;Passeios &amp; Frota&lt;/a&gt;
+            &lt;a href=&quot;#pousadas&quot; class=&quot;block py-2 text-slate-200 hover:text-brand-teal font-medium border-b border-slate-800&quot;&gt;Pousadas &amp; Gastronomia&lt;/a&gt;
+            &lt;a href=&quot;#roteiro&quot; class=&quot;block py-2 text-slate-200 hover:text-brand-teal font-medium border-b border-slate-800&quot;&gt;Montar Roteiro Customizado&lt;/a&gt;
+            &lt;a href=&quot;#depoimentos&quot; class=&quot;block py-2 text-slate-200 hover:text-brand-teal font-medium border-b border-slate-800&quot;&gt;Avaliações&lt;/a&gt;
+            &lt;a href=&quot;#contato&quot; class=&quot;block py-2 text-slate-200 hover:text-brand-teal font-medium&quot;&gt;Contato&lt;/a&gt;
+            &lt;button onclick=&quot;openBookingModal()&quot; class=&quot;w-full bg-brand-coral hover:bg-brand-coralHover text-white py-3 rounded-xl font-bold text-center mt-4&quot;&gt;
+                Fazer Reserva Agora
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;!-- HERO SECTION --&gt;
+    &lt;section id=&quot;hero&quot; class=&quot;relative min-h-[88vh] flex items-center justify-center pt-10 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden&quot;&gt;
+        &lt;!-- Background Ambient Lights &amp; Glowing Orbs --&gt;
+        &lt;div class=&quot;absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-teal/15 rounded-full blur-[140px] pointer-events-none&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;absolute bottom-10 right-10 w-80 h-80 bg-brand-coral/10 rounded-full blur-[100px] pointer-events-none&quot;&gt;&lt;/div&gt;
+
+        &lt;div class=&quot;max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center&quot;&gt;
+            
+            &lt;!-- Left Hero Text Content --&gt;
+            &lt;div class=&quot;lg:col-span-7 space-y-8 text-center lg:text-left&quot;&gt;
+                &lt;div class=&quot;inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-panel border border-brand-teal/40 text-brand-teal text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-lg&quot;&gt;
+                    &lt;span class=&quot;w-2 h-2 rounded-full bg-brand-teal animate-ping&quot;&gt;&lt;/span&gt;
+                    &lt;span&gt;O Futuro do Turismo Náutico Chegou&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;h1 class=&quot;text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-none font-heading&quot;&gt;
+                    Explore o Caribe Brasileiro em &lt;span class=&quot;gradient-text&quot;&gt;Outro Nível&lt;/span&gt;
+                &lt;/h1&gt;
+
+                &lt;p class=&quot;text-lg sm:text-xl text-slate-300 max-w-2xl font-light leading-relaxed&quot;&gt;
+                    Exclusividade em aluguel de &lt;strong&gt;lanchas privativas, escunas VIP, jet skis, hospedagens boutique&lt;/strong&gt; e experiências gastronômicas imperdíveis em Arraial do Cabo, Búzios e Cabo Frio.
+                &lt;/p&gt;
+
+                &lt;!-- Action CTAs --&gt;
+                &lt;div class=&quot;flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4&quot;&gt;
+                    &lt;a href=&quot;#experiencias&quot; class=&quot;w-full sm:w-auto bg-gradient-to-r from-brand-teal to-brand-ocean hover:opacity-95 text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-brand-teal/20 transition-all text-center flex items-center justify-center gap-2&quot;&gt;
+                        &lt;span&gt;Explorar Passeios&lt;/span&gt;
+                        &lt;i class=&quot;fa-solid fa-arrow-right text-sm&quot;&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                    &lt;a href=&quot;#roteiro&quot; class=&quot;w-full sm:w-auto glass-panel hover:bg-white/10 text-white border border-slate-600 hover:border-brand-teal font-semibold px-8 py-4 rounded-xl transition-all text-center flex items-center justify-center gap-2&quot;&gt;
+                        &lt;i class=&quot;fa-solid fa-wand-magic-sparkles text-brand-teal&quot;&gt;&lt;/i&gt;
+                        &lt;span&gt;Montar Roteiro VIP&lt;/span&gt;
+                    &lt;/a&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Stats Counters --&gt;
+                &lt;div class=&quot;pt-6 grid grid-cols-3 gap-4 border-t border-slate-800&quot;&gt;
+                    &lt;div class=&quot;text-center lg:text-left&quot;&gt;
+                        &lt;p class=&quot;text-2xl sm:text-3xl font-black text-brand-teal font-heading&quot;&gt;Atendimento&lt;/p&gt;
+                        &lt;p class=&quot;text-xs text-slate-400 font-medium&quot;&gt;Personalizado&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;text-center lg:text-left&quot;&gt;
+                        &lt;p class=&quot;text-2xl sm:text-3xl font-black text-white font-heading&quot;&gt;3 destinos&lt;/p&gt;
+                        &lt;p class=&quot;text-xs text-slate-400 font-medium&quot;&gt;Região dos Lagos&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;text-center lg:text-left&quot;&gt;
+                        &lt;p class=&quot;text-2xl sm:text-3xl font-black text-brand-coral font-heading&quot;&gt;Experiências&lt;/p&gt;
+                        &lt;p class=&quot;text-xs text-slate-400 font-medium&quot;&gt;Náutica &amp; Turismo&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Right Interactive Search Box Widget --&gt;
+            &lt;div class=&quot;lg:col-span-5&quot;&gt;
+                &lt;div class=&quot;glass-panel p-6 sm:p-8 rounded-3xl border border-brand-teal/30 shadow-2xl relative&quot;&gt;
+                    &lt;div class=&quot;flex items-center justify-between mb-6&quot;&gt;
+                        &lt;h3 class=&quot;text-xl font-bold text-white flex items-center gap-2&quot;&gt;
+                            &lt;i class=&quot;fa-solid fa-compass text-brand-teal&quot;&gt;&lt;/i&gt;
+                            &lt;span&gt;Reserva Expressa&lt;/span&gt;
+                        &lt;/h3&gt;
+                        &lt;span class=&quot;text-xs bg-brand-teal/20 text-brand-teal px-2.5 py-1 rounded-full font-semibold&quot;&gt;Atendimento personalizado&lt;/span&gt;
+                    &lt;/div&gt;
+
+                    &lt;form id=&quot;hero-search-form&quot; onsubmit=&quot;handleHeroSearch(event)&quot; class=&quot;space-y-4&quot;&gt;
+                        &lt;!-- Select City --&gt;
+                        &lt;div&gt;
+                            &lt;label class=&quot;block text-xs font-semibold uppercase text-slate-400 mb-1&quot;&gt;Destino na Região&lt;/label&gt;
+                            &lt;div class=&quot;relative&quot;&gt;
+                                &lt;i class=&quot;fa-solid fa-location-dot absolute left-4 top-1/2 -translate-y-1/2 text-brand-teal&quot;&gt;&lt;/i&gt;
+                                &lt;select id=&quot;search-city&quot; class=&quot;w-full bg-brand-navy/90 border border-slate-700 rounded-xl py-3 pl-11 pr-4 text-white text-sm focus:border-brand-teal focus:outline-none focus:ring-1 focus:ring-brand-teal transition-all&quot;&gt;
+                                    &lt;option value=&quot;todos&quot;&gt;Todas as Cidades&lt;/option&gt;
+                                    &lt;option value=&quot;arraial&quot;&gt;Arraial do Cabo&lt;/option&gt;
+                                    &lt;option value=&quot;buzios&quot;&gt;Armação dos Búzios&lt;/option&gt;
+                                    &lt;option value=&quot;cabofrio&quot;&gt;Cabo Frio&lt;/option&gt;
+                                &lt;/select&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Select Category --&gt;
+                        &lt;div&gt;
+                            &lt;label class=&quot;block text-xs font-semibold uppercase text-slate-400 mb-1&quot;&gt;Tipo de Experiência&lt;/label&gt;
+                            &lt;div class=&quot;relative&quot;&gt;
+                                &lt;i class=&quot;fa-solid fa-sailboat absolute left-4 top-1/2 -translate-y-1/2 text-brand-teal&quot;&gt;&lt;/i&gt;
+                                &lt;select id=&quot;search-category&quot; class=&quot;w-full bg-brand-navy/90 border border-slate-700 rounded-xl py-3 pl-11 pr-4 text-white text-sm focus:border-brand-teal focus:outline-none focus:ring-1 focus:ring-brand-teal transition-all&quot;&gt;
+                                    &lt;option value=&quot;todos&quot;&gt;Todos os Serviços&lt;/option&gt;
+                                    &lt;option value=&quot;lancha&quot;&gt;Lanchas Privativas&lt;/option&gt;
+                                    &lt;option value=&quot;escuna&quot;&gt;Passeios de Escuna&lt;/option&gt;
+                                    &lt;option value=&quot;jetski&quot;&gt;Jet Skis Extreme&lt;/option&gt;
+                                    &lt;option value=&quot;pousada&quot;&gt;Pousadas &amp; Resorts&lt;/option&gt;
+                                &lt;/select&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Date and People Grid --&gt;
+                        &lt;div class=&quot;grid grid-cols-2 gap-3&quot;&gt;
+                            &lt;div&gt;
+                                &lt;label class=&quot;block text-xs font-semibold uppercase text-slate-400 mb-1&quot;&gt;Data Desejada&lt;/label&gt;
+                                &lt;input type=&quot;date&quot; id=&quot;search-date&quot; min=&quot;&quot; class=&quot;w-full bg-brand-navy/90 border border-slate-700 rounded-xl py-3 px-3 text-white text-sm focus:border-brand-teal focus:outline-none&quot;&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                                &lt;label class=&quot;block text-xs font-semibold uppercase text-slate-400 mb-1&quot;&gt;Passageiros&lt;/label&gt;
+                                &lt;select id=&quot;search-people&quot; class=&quot;w-full bg-brand-navy/90 border border-slate-700 rounded-xl py-3 px-3 text-white text-sm focus:border-brand-teal focus:outline-none&quot;&gt;
+                                    &lt;option value=&quot;1-2&quot;&gt;1 a 2 Pessoas&lt;/option&gt;
+                                    &lt;option value=&quot;3-6&quot;&gt;3 a 6 Pessoas&lt;/option&gt;
+                                    &lt;option value=&quot;7-12&quot;&gt;7 a 12 Pessoas&lt;/option&gt;
+                                    &lt;option value=&quot;13+&quot;&gt;Grupo VIP (13+)&lt;/option&gt;
+                                &lt;/select&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;button type=&quot;submit&quot; class=&quot;w-full bg-brand-coral hover:bg-brand-coralHover text-white font-bold py-4 rounded-xl shadow-lg glow-button transition-all text-base flex items-center justify-center gap-2 mt-4&quot;&gt;
+                            &lt;i class=&quot;fa-solid fa-magnifying-glass&quot;&gt;&lt;/i&gt;
+                            &lt;span&gt;Encontrar Passeios&lt;/span&gt;
+                        &lt;/button&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- EXPERIENCES &amp; FLEET CATALOG SECTION --&gt;
+    &lt;section id=&quot;experiencias&quot; class=&quot;py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800&quot;&gt;
+        &lt;div class=&quot;text-center max-w-3xl mx-auto mb-12&quot;&gt;
+            &lt;h2 class=&quot;text-xs uppercase tracking-widest text-brand-teal font-extrabold mb-2&quot;&gt;Frota &amp; Experiências Exclusivas&lt;/h2&gt;
+            &lt;p class=&quot;text-3xl sm:text-5xl font-black text-white font-heading&quot;&gt;Encontre Seu Passeio Perfeito&lt;/p&gt;
+            &lt;p class=&quot;text-slate-400 mt-3 text-base&quot;&gt;De passeios de escunas com mergulho guiado a lanchas privativas com marinheiro e churrasco a bordo.&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Filter Buttons Bar --&gt;
+        &lt;div class=&quot;flex flex-wrap items-center justify-center gap-3 mb-12&quot;&gt;
+            &lt;button type=&quot;button&quot; onclick=&quot;filterCatalog(&#x27;todos&#x27;, this)&quot; class=&quot;catalog-filter-btn active bg-brand-teal text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition-all shadow-md&quot;&gt;
+                Todos os Passeios
+            &lt;/button&gt;
+            &lt;button type=&quot;button&quot; onclick=&quot;filterCatalog(&#x27;lancha&#x27;, this)&quot; class=&quot;catalog-filter-btn glass-panel text-slate-300 hover:text-white hover:border-brand-teal font-semibold px-5 py-2.5 rounded-xl text-sm transition-all&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-ship mr-1.5 text-brand-teal&quot;&gt;&lt;/i&gt; Lanchas Privativas
+            &lt;/button&gt;
+            &lt;button type=&quot;button&quot; onclick=&quot;filterCatalog(&#x27;escuna&#x27;, this)&quot; class=&quot;catalog-filter-btn glass-panel text-slate-300 hover:text-white hover:border-brand-teal font-semibold px-5 py-2.5 rounded-xl text-sm transition-all&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-anchor mr-1.5 text-brand-teal&quot;&gt;&lt;/i&gt; Escunas &amp; Catamarãs
+            &lt;/button&gt;
+            &lt;button type=&quot;button&quot; onclick=&quot;filterCatalog(&#x27;jetski&#x27;, this)&quot; class=&quot;catalog-filter-btn glass-panel text-slate-300 hover:text-white hover:border-brand-teal font-semibold px-5 py-2.5 rounded-xl text-sm transition-all&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-water mr-1.5 text-brand-teal&quot;&gt;&lt;/i&gt; Jet Skis Extreme
+            &lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Experience Cards Grid --&gt;
+        &lt;div id=&quot;catalog-grid&quot; class=&quot;grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8&quot;&gt;
+            &lt;!-- Dynamic Content Injected via Javascript --&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- POUSADAS &amp; GASTRONOMIA SECTION --&gt;
+    &lt;section id=&quot;pousadas&quot; class=&quot;py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800 relative&quot;&gt;
+        &lt;div class=&quot;grid grid-cols-1 lg:grid-cols-12 gap-12 items-center&quot;&gt;
+            
+            &lt;div class=&quot;lg:col-span-5 space-y-6&quot;&gt;
+                &lt;span class=&quot;text-xs font-bold uppercase tracking-widest text-brand-coral bg-brand-coral/10 px-3 py-1 rounded-full border border-brand-coral/20&quot;&gt;
+                    Parcerias Selecionadas
+                &lt;/span&gt;
+                &lt;h2 class=&quot;text-3xl sm:text-5xl font-black text-white font-heading leading-tight&quot;&gt;
+                    Pousadas Boutique &amp; Gastronomia à Beira-Mar
+                &lt;/h2&gt;
+                &lt;p class=&quot;text-slate-300 leading-relaxed&quot;&gt;
+                    A TurOceania não cuida apenas do seu passeio no mar. Garantimos reservas exclusivas em hospedagens boutique com vista para a praia e mesas reservadas nos melhores restaurantes gastronômicos da Região dos Lagos.
+                &lt;/p&gt;
+
+                &lt;div class=&quot;space-y-4 pt-2&quot;&gt;
+                    &lt;div class=&quot;flex items-start space-x-4&quot;&gt;
+                        &lt;div class=&quot;w-10 h-10 rounded-xl bg-brand-teal/20 border border-brand-teal/30 flex items-center justify-center shrink-0&quot;&gt;
+                            &lt;i class=&quot;fa-solid fa-hotel text-brand-teal&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;h4 class=&quot;font-bold text-white text-base&quot;&gt;Pousadas à Beira-Mar&lt;/h4&gt;
+                            &lt;p class=&quot;text-sm text-slate-400&quot;&gt;Café da manhã incluso, suítes com hidromassagem e vista panorâmica.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&quot;flex items-start space-x-4&quot;&gt;
+                        &lt;div class=&quot;w-10 h-10 rounded-xl bg-brand-coral/20 border border-brand-coral/30 flex items-center justify-center shrink-0&quot;&gt;
+                            &lt;i class=&quot;fa-solid fa-utensils text-brand-coral&quot;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;h4 class=&quot;font-bold text-white text-base&quot;&gt;Gastronomia Marítima VIP&lt;/h4&gt;
+                            &lt;p class=&quot;text-sm text-slate-400&quot;&gt;Frutos do mar frescos, alta culinária e drinks autorais nas praias mais belas.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Cards display for Pousadas &amp; Gastronomy --&gt;
+            &lt;div class=&quot;lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6&quot;&gt;
+                
+                &lt;div class=&quot;glass-card rounded-2xl overflow-hidden group&quot;&gt;
+                    &lt;div class=&quot;h-48 bg-cover bg-center relative&quot; style=&quot;background-image: url(&#x27;https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&amp;fit=crop&amp;w=800&amp;q=80&#x27;);&quot;&gt;
+                        &lt;span class=&quot;absolute top-3 right-3 bg-brand-navy/80 text-brand-teal text-xs font-bold px-2.5 py-1 rounded-full border border-brand-teal/30&quot;&gt;
+                            Búzios VIP
+                        &lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;p-5 space-y-3&quot;&gt;
+                        &lt;h3 class=&quot;font-bold text-lg text-white group-hover:text-brand-teal transition-colors&quot;&gt;Pousada Ocean Boutique Búzios&lt;/h3&gt;
+                        &lt;p class=&quot;text-xs text-slate-400&quot;&gt;&lt;i class=&quot;fa-solid fa-location-dot text-brand-coral mr-1&quot;&gt;&lt;/i&gt; Praia da Armação, Búzios&lt;/p&gt;
+                        &lt;p class=&quot;text-sm text-slate-300&quot;&gt;Piscina de borda infinita de frente para o mar, transfer para embarques.&lt;/p&gt;
+                        &lt;div class=&quot;flex items-center justify-between pt-2 border-t border-slate-800&quot;&gt;
+                            &lt;span class=&quot;text-xs text-slate-400&quot;&gt;A partir de &lt;strong class=&quot;text-white text-base&quot;&gt;R$ 580&lt;/strong&gt;/diária&lt;/span&gt;
+                            &lt;button onclick=&quot;quickReserve(&#x27;Pousada Ocean Boutique Búzios&#x27;)&quot; class=&quot;text-xs font-bold text-brand-teal hover:text-white transition-colors&quot;&gt;Reservar &lt;i class=&quot;fa-solid fa-chevron-right ml-1&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;glass-card rounded-2xl overflow-hidden group&quot;&gt;
+                    &lt;div class=&quot;h-48 bg-cover bg-center relative&quot; style=&quot;background-image: url(&#x27;https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&amp;fit=crop&amp;w=800&amp;q=80&#x27;);&quot;&gt;
+                        &lt;span class=&quot;absolute top-3 right-3 bg-brand-navy/80 text-brand-coral text-xs font-bold px-2.5 py-1 rounded-full border border-brand-coral/30&quot;&gt;
+                            Gastronomia Arraial
+                        &lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;p-5 space-y-3&quot;&gt;
+                        &lt;h3 class=&quot;font-bold text-lg text-white group-hover:text-brand-teal transition-colors&quot;&gt;Restaurante Farol das Lagostas&lt;/h3&gt;
+                        &lt;p class=&quot;text-xs text-slate-400&quot;&gt;&lt;i class=&quot;fa-solid fa-location-dot text-brand-coral mr-1&quot;&gt;&lt;/i&gt; Praia dos Anjos, Arraial do Cabo&lt;/p&gt;
+                        &lt;p class=&quot;text-sm text-slate-300&quot;&gt;Pratos do dia com peixes frescos grelhados e vista privilegiada do pôr do sol.&lt;/p&gt;
+                        &lt;div class=&quot;flex items-center justify-between pt-2 border-t border-slate-800&quot;&gt;
+                            &lt;span class=&quot;text-xs text-slate-400&quot;&gt;Reserva VIP de Mesa&lt;/span&gt;
+                            &lt;button onclick=&quot;quickReserve(&#x27;Restaurante Farol das Lagostas&#x27;)&quot; class=&quot;text-xs font-bold text-brand-teal hover:text-white transition-colors&quot;&gt;Reservar &lt;i class=&quot;fa-solid fa-chevron-right ml-1&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- CUSTOM ITINERARY WIZARD SECTION --&gt;
+    &lt;section id=&quot;roteiro&quot; class=&quot;py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800&quot;&gt;
+        &lt;div class=&quot;glass-panel p-8 sm:p-12 rounded-3xl border border-brand-teal/40 shadow-2xl relative overflow-hidden&quot;&gt;
+            &lt;div class=&quot;absolute -top-24 -right-24 w-72 h-72 bg-brand-teal/10 rounded-full blur-3xl pointer-events-none&quot;&gt;&lt;/div&gt;
+
+            &lt;div class=&quot;text-center max-w-2xl mx-auto mb-10&quot;&gt;
+                &lt;span class=&quot;inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-teal/20 text-brand-teal text-xs font-extrabold uppercase mb-2&quot;&gt;
+                    &lt;i class=&quot;fa-solid fa-wand-magic-sparkles&quot;&gt;&lt;/i&gt; Simulação Inteligente
+                &lt;/span&gt;
+                &lt;h2 class=&quot;text-3xl sm:text-4xl font-extrabold text-white font-heading&quot;&gt;Simulador de Roteiro Personalizado&lt;/h2&gt;
+                &lt;p class=&quot;text-slate-300 text-sm mt-2&quot;&gt;Monte seu pacote combinando embarcação, hospedagem e extras com estimativa de valor em tempo real.&lt;/p&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Wizard Step Form --&gt;
+            &lt;form id=&quot;itinerary-wizard&quot; onsubmit=&quot;handleWizardSubmit(event)&quot; class=&quot;space-y-8 max-w-4xl mx-auto&quot;&gt;
+                
+                &lt;!-- Step 1: Destination --&gt;
+                &lt;div&gt;
+                    &lt;label class=&quot;block text-sm font-bold text-white mb-3&quot;&gt;1. Escolha a Cidade Principal:&lt;/label&gt;
+                    &lt;div class=&quot;grid grid-cols-1 sm:grid-cols-3 gap-4&quot;&gt;
+                        &lt;label class=&quot;wizard-option-card glass-card p-4 rounded-xl cursor-pointer flex items-center space-x-3 border hover:border-brand-teal&quot;&gt;
+                            &lt;input type=&quot;radio&quot; name=&quot;wiz-city&quot; value=&quot;Arraial do Cabo&quot; class=&quot;accent-brand-teal&quot; checked onchange=&quot;updateWizardEstimate()&quot;&gt;
+                            &lt;div&gt;
+                                &lt;p class=&quot;font-bold text-white text-sm&quot;&gt;Arraial do Cabo&lt;/p&gt;
+                                &lt;p class=&quot;text-xs text-slate-400&quot;&gt;Águas cristalinas&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/label&gt;
+                        &lt;label class=&quot;wizard-option-card glass-card p-4 rounded-xl cursor-pointer flex items-center space-x-3 border hover:border-brand-teal&quot;&gt;
+                            &lt;input type=&quot;radio&quot; name=&quot;wiz-city&quot; value=&quot;Búzios&quot; class=&quot;accent-brand-teal&quot; onchange=&quot;updateWizardEstimate()&quot;&gt;
+                            &lt;div&gt;
+                                &lt;p class=&quot;font-bold text-white text-sm&quot;&gt;Armação dos Búzios&lt;/p&gt;
+                                &lt;p class=&quot;text-xs text-slate-400&quot;&gt;Sofisticação e praias&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/label&gt;
+                        &lt;label class=&quot;wizard-option-card glass-card p-4 rounded-xl cursor-pointer flex items-center space-x-3 border hover:border-brand-teal&quot;&gt;
+                            &lt;input type=&quot;radio&quot; name=&quot;wiz-city&quot; value=&quot;Cabo Frio&quot; class=&quot;accent-brand-teal&quot; onchange=&quot;updateWizardEstimate()&quot;&gt;
+                            &lt;div&gt;
+                                &lt;p class=&quot;font-bold text-white text-sm&quot;&gt;Cabo Frio&lt;/p&gt;
+                                &lt;p class=&quot;text-xs text-slate-400&quot;&gt;Dunas e ilhas&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Step 2: Vessel selection --&gt;
+                &lt;div&gt;
+                    &lt;label class=&quot;block text-sm font-bold text-white mb-3&quot;&gt;2. Selecione sua Embarcação Principal:&lt;/label&gt;
+                    &lt;div class=&quot;grid grid-cols-1 sm:grid-cols-3 gap-4&quot;&gt;
+                        &lt;label class=&quot;wizard-option-card glass-card p-4 rounded-xl cursor-pointer flex items-center space-x-3 border hover:border-brand-teal&quot;&gt;
+                            &lt;input type=&quot;radio&quot; name=&quot;wiz-vessel&quot; value=&quot;Lancha VIP (Privativa)&quot; data-price=&quot;2200&quot; class=&quot;accent-brand-teal&quot; checked onchange=&quot;updateWizardEstimate()&quot;&gt;
+                            &lt;div&gt;
+                                &lt;p class=&quot;font-bold text-white text-sm&quot;&gt;Lancha VIP&lt;/p&gt;
+                                &lt;p class=&quot;text-xs text-slate-400&quot;&gt;Privativa (Até 10 pax)&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/label&gt;
+                        &lt;label class=&quot;wizard-option-card glass-card p-4 rounded-xl cursor-pointer flex items-center space-x-3 border hover:border-brand-teal&quot;&gt;
+                            &lt;input type=&quot;radio&quot; name=&quot;wiz-vessel&quot; value=&quot;Passeio de Escuna VIP&quot; data-price=&quot;120&quot; class=&quot;accent-brand-teal&quot; onchange=&quot;updateWizardEstimate()&quot;&gt;
+                            &lt;div&gt;
+                                &lt;p class=&quot;font-bold text-white text-sm&quot;&gt;Passeio de Escuna&lt;/p&gt;
+                                &lt;p class=&quot;text-xs text-slate-400&quot;&gt;Compartilhado / Pax&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/label&gt;
+                        &lt;label class=&quot;wizard-option-card glass-card p-4 rounded-xl cursor-pointer flex items-center space-x-3 border hover:border-brand-teal&quot;&gt;
+                            &lt;input type=&quot;radio&quot; name=&quot;wiz-vessel&quot; value=&quot;Jet Ski Sea-Doo (1h)&quot; data-price=&quot;450&quot; class=&quot;accent-brand-teal&quot; onchange=&quot;updateWizardEstimate()&quot;&gt;
+                            &lt;div&gt;
+                                &lt;p class=&quot;font-bold text-white text-sm&quot;&gt;Jet Ski Extreme&lt;/p&gt;
+                                &lt;p class=&quot;text-xs text-slate-400&quot;&gt;1 Hora / Embarcação&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Step 3: Extras Checkboxes --&gt;
+                &lt;div&gt;
+                    &lt;label class=&quot;block text-sm font-bold text-white mb-3&quot;&gt;3. Serviços Adicionais &amp; Experiências Extras:&lt;/label&gt;
+                    &lt;div class=&quot;grid grid-cols-1 sm:grid-cols-3 gap-4&quot;&gt;
+                        &lt;label class=&quot;glass-card p-3 rounded-xl cursor-pointer flex items-center space-x-3&quot;&gt;
+                            &lt;input type=&quot;checkbox&quot; name=&quot;wiz-extra&quot; value=&quot;Churrasco A Bordo&quot; data-price=&quot;350&quot; class=&quot;accent-brand-teal rounded&quot; onchange=&quot;updateWizardEstimate()&quot;&gt;
+                            &lt;span class=&quot;text-xs text-slate-200&quot;&gt;Churrasco com Marinheiro (R$ 350)&lt;/span&gt;
+                        &lt;/label&gt;
+                        &lt;label class=&quot;glass-card p-3 rounded-xl cursor-pointer flex items-center space-x-3&quot;&gt;
+                            &lt;input type=&quot;checkbox&quot; name=&quot;wiz-extra&quot; value=&quot;Mergulho Snorkel Guiado&quot; data-price=&quot;150&quot; class=&quot;accent-brand-teal rounded&quot; onchange=&quot;updateWizardEstimate()&quot;&gt;
+                            &lt;span class=&quot;text-xs text-slate-200&quot;&gt;Fotos Subaquáticas (R$ 150)&lt;/span&gt;
+                        &lt;/label&gt;
+                        &lt;label class=&quot;glass-card p-3 rounded-xl cursor-pointer flex items-center space-x-3&quot;&gt;
+                            &lt;input type=&quot;checkbox&quot; name=&quot;wiz-extra&quot; value=&quot;Transfer Executivo&quot; data-price=&quot;200&quot; class=&quot;accent-brand-teal rounded&quot; onchange=&quot;updateWizardEstimate()&quot;&gt;
+                            &lt;span class=&quot;text-xs text-slate-200&quot;&gt;Transfer Hotel/Marina (R$ 200)&lt;/span&gt;
+                        &lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Step 4: Guests count slider --&gt;
+                &lt;div&gt;
+                    &lt;div class=&quot;flex justify-between items-center mb-2&quot;&gt;
+                        &lt;label class=&quot;text-sm font-bold text-white&quot;&gt;4. Número de Pessoas no Grupo:&lt;/label&gt;
+                        &lt;span id=&quot;wiz-people-count&quot; class=&quot;text-brand-teal font-extrabold text-base&quot;&gt;4 Pessoas&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;input type=&quot;range&quot; id=&quot;wiz-people-range&quot; min=&quot;1&quot; max=&quot;20&quot; value=&quot;4&quot; class=&quot;w-full accent-brand-teal cursor-pointer&quot; oninput=&quot;updateWizardEstimate()&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Summary Bar &amp; Instant Estimate --&gt;
+                &lt;div class=&quot;p-6 bg-brand-navy/90 rounded-2xl border border-brand-teal/40 flex flex-col md:flex-row items-center justify-between gap-6&quot;&gt;
+                    &lt;div&gt;
+                        &lt;p class=&quot;text-xs text-slate-400 uppercase font-semibold&quot;&gt;Valor Estimado do Roteiro:&lt;/p&gt;
+                        &lt;p class=&quot;text-3xl font-black text-brand-teal font-heading&quot;&gt;R$ &lt;span id=&quot;wiz-total-price&quot;&gt;2.200&lt;/span&gt;,00&lt;/p&gt;
+                        &lt;p class=&quot;text-[11px] text-slate-400 mt-0.5&quot;&gt;*Valor estimado sujeito à confirmação de datas na alta temporada.&lt;/p&gt;
+                    &lt;/div&gt;
+
+                    &lt;button type=&quot;submit&quot; class=&quot;w-full md:w-auto bg-brand-coral hover:bg-brand-coralHover text-white font-extrabold px-8 py-4 rounded-xl shadow-xl glow-button transition-all flex items-center justify-center gap-2&quot;&gt;
+                        &lt;i class=&quot;fa-brands fa-whatsapp text-lg&quot;&gt;&lt;/i&gt;
+                        &lt;span&gt;Enviar Roteiro para Consultor no WhatsApp&lt;/span&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- REVIEWS &amp; TESTIMONIALS SECTION --&gt;
+    &lt;section id=&quot;depoimentos&quot; class=&quot;py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800&quot;&gt;
+        &lt;div class=&quot;text-center max-w-2xl mx-auto mb-12&quot;&gt;
+            &lt;span class=&quot;text-xs font-extrabold uppercase tracking-widest text-brand-teal&quot;&gt;Experiências Reais&lt;/span&gt;
+            &lt;h2 class=&quot;text-3xl sm:text-5xl font-black text-white font-heading mt-1&quot;&gt;O Que Nossos Clientes Dizem&lt;/h2&gt;
+            &lt;p class=&quot;text-slate-400 text-sm mt-2&quot;&gt;Depoimentos apresentados para ilustrar as experiências oferecidas.&lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;grid grid-cols-1 md:grid-cols-3 gap-6&quot;&gt;
+            
+            &lt;div class=&quot;glass-card p-6 rounded-2xl space-y-4 relative&quot;&gt;
+                &lt;div class=&quot;flex items-center space-x-1 text-amber-400 text-sm&quot;&gt;
+                    &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                    &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                    &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                    &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                    &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;p class=&quot;text-slate-300 text-sm italic&quot;&gt;
+                    &quot;O passeio de lancha privativa em Arraial foi inesquecível! A água do Pontal do Atalaia é surreal e o atendimento da equipe TurOceania foi impecável do início ao fim.&quot;
+                &lt;/p&gt;
+                &lt;div class=&quot;flex items-center space-x-3 pt-2 border-t border-slate-800&quot;&gt;
+                    &lt;div class=&quot;w-10 h-10 rounded-full bg-brand-teal/30 flex items-center justify-center text-brand-teal font-bold text-sm&quot;&gt;
+                        RM
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;h4 class=&quot;font-bold text-white text-sm&quot;&gt;Rodrigo Mendes&lt;/h4&gt;
+                        &lt;p class=&quot;text-xs text-slate-400&quot;&gt;Rio de Janeiro, RJ • Passeio em Arraial&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;glass-card p-6 rounded-2xl space-y-4 relative&quot;&gt;
+                &lt;div class=&quot;flex items-center space-x-1 text-amber-400 text-sm&quot;&gt;
+                    &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                    &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                    &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                    &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                    &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;p class=&quot;text-slate-300 text-sm italic&quot;&gt;
+                    &quot;Alugamos o Jet Ski e reservamos a pousada pela plataforma. Rápido, seguro e sem complicações. O voucher no celular facilitou tudo na chegada em Búzios.&quot;
+                &lt;/p&gt;
+                &lt;div class=&quot;flex items-center space-x-3 pt-2 border-t border-slate-800&quot;&gt;
+                    &lt;div class=&quot;w-10 h-10 rounded-full bg-brand-coral/30 flex items-center justify-center text-brand-coral font-bold text-sm&quot;&gt;
+                        CF
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;h4 class=&quot;font-bold text-white text-sm&quot;&gt;Camila &amp; Felipe&lt;/h4&gt;
+                        &lt;p class=&quot;text-xs text-slate-400&quot;&gt;Belo Horizonte, MG • Viagem de Casal&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;glass-card p-6 rounded-2xl space-y-4 relative&quot;&gt;
+                &lt;div class=&quot;flex items-center space-x-1 text-amber-400 text-sm&quot;&gt;
+                    &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                    &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                    &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                    &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                    &lt;i class=&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;p class=&quot;text-slate-300 text-sm italic&quot;&gt;
+                    &quot;Fizemos o passeio de escuna VIP com a família inteira em Cabo Frio. Estrutura nota 10, marinheiro atencioso e o churrasco a bordo estava excelente!&quot;
+                &lt;/p&gt;
+                &lt;div class=&quot;flex items-center space-x-3 pt-2 border-t border-slate-800&quot;&gt;
+                    &lt;div class=&quot;w-10 h-10 rounded-full bg-purple-500/30 flex items-center justify-center text-purple-400 font-bold text-sm&quot;&gt;
+                        AS
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;h4 class=&quot;font-bold text-white text-sm&quot;&gt;Ana Paula Silva&lt;/h4&gt;
+                        &lt;p class=&quot;text-xs text-slate-400&quot;&gt;São Paulo, SP • Grupo Familiar&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- CONTACT &amp; RESERVATION SECTION --&gt;
+    &lt;section id=&quot;contato&quot; class=&quot;py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-800&quot;&gt;
+        &lt;div class=&quot;grid grid-cols-1 lg:grid-cols-12 gap-12&quot;&gt;
+            
+            &lt;div class=&quot;lg:col-span-5 space-y-6&quot;&gt;
+                &lt;span class=&quot;text-xs font-bold uppercase tracking-widest text-brand-teal&quot;&gt;Atendimento Exclusivo&lt;/span&gt;
+                &lt;h2 class=&quot;text-3xl sm:text-5xl font-black text-white font-heading&quot;&gt;Fale Conosco&lt;/h2&gt;
+                &lt;p class=&quot;text-slate-300&quot;&gt;
+                    Dúvidas sobre disponibilidade, embarcações privativas ou eventos corporativos no mar? Nossa equipe responde imediatamente no WhatsApp.
+                &lt;/p&gt;
+
+                &lt;div class=&quot;space-y-4 text-sm text-slate-300&quot;&gt;
+                    &lt;div class=&quot;flex items-center space-x-3&quot;&gt;
+                        &lt;i class=&quot;fa-solid fa-location-dot text-brand-teal w-5&quot;&gt;&lt;/i&gt;
+                        &lt;span&gt;Atendimento presencial em Arraial do Cabo, Búzios e Cabo Frio&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;flex items-center space-x-3&quot;&gt;
+                        &lt;i class=&quot;fa-brands fa-instagram text-brand-teal w-5&quot;&gt;&lt;/i&gt;
+                        &lt;a href=&quot;https://www.instagram.com/turoceania//turoceania.oficial&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; class=&quot;hover:text-brand-teal transition-colors&quot;&gt;@turoceania&lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;flex items-center space-x-3&quot;&gt;
+                        &lt;i class=&quot;fa-brands fa-whatsapp text-emerald-400 w-5&quot;&gt;&lt;/i&gt;
+                        &lt;a href=&quot;https://wa.me/5522981179214&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; class=&quot;hover:text-brand-teal transition-colors&quot;&gt;(22) 98117-9214&lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;flex items-center space-x-3&quot;&gt;
+                        &lt;i class=&quot;fa-solid fa-envelope text-brand-teal w-5&quot;&gt;&lt;/i&gt;
+                        &lt;a href=&quot;mailto:contato@turoceania.com.br&quot; class=&quot;hover:text-brand-teal transition-colors&quot;&gt;contato@turoceania.com.br&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Quick Contact Form --&gt;
+            &lt;div class=&quot;lg:col-span-7&quot;&gt;
+                &lt;div class=&quot;glass-panel p-8 rounded-3xl border border-brand-teal/30&quot;&gt;
+                    &lt;h3 class=&quot;text-xl font-bold text-white mb-6&quot;&gt;Envie uma Mensagem Direta&lt;/h3&gt;
+                    &lt;form onsubmit=&quot;handleContactSubmit(event)&quot; class=&quot;space-y-4&quot;&gt;
+                        &lt;div class=&quot;grid grid-cols-1 sm:grid-cols-2 gap-4&quot;&gt;
+                            &lt;div&gt;
+                                &lt;label class=&quot;block text-xs uppercase text-slate-400 font-semibold mb-1&quot;&gt;Seu Nome&lt;/label&gt;
+                                &lt;input type=&quot;text&quot; required placeholder=&quot;Ex: Lucas Gabriel&quot; class=&quot;w-full bg-brand-navy border border-slate-700 rounded-xl py-3 px-4 text-white text-sm focus:border-brand-teal focus:outline-none&quot;&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                                &lt;label class=&quot;block text-xs uppercase text-slate-400 font-semibold mb-1&quot;&gt;WhatsApp&lt;/label&gt;
+                                &lt;input type=&quot;tel&quot; required placeholder=&quot;(00) 00000-0000&quot; class=&quot;w-full bg-brand-navy border border-slate-700 rounded-xl py-3 px-4 text-white text-sm focus:border-brand-teal focus:outline-none&quot;&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;label class=&quot;block text-xs uppercase text-slate-400 font-semibold mb-1&quot;&gt;Interesse Principal&lt;/label&gt;
+                            &lt;select class=&quot;w-full bg-brand-navy border border-slate-700 rounded-xl py-3 px-4 text-white text-sm focus:border-brand-teal focus:outline-none&quot;&gt;
+                                &lt;option&gt;Lancha Privativa (Aniversário/Grupo)&lt;/option&gt;
+                                &lt;option&gt;Passeio de Escuna Coletivo&lt;/option&gt;
+                                &lt;option&gt;Aluguel de Jet Ski&lt;/option&gt;
+                                &lt;option&gt;Pacote Completo (Pousada + Passeios)&lt;/option&gt;
+                            &lt;/select&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;label class=&quot;block text-xs uppercase text-slate-400 font-semibold mb-1&quot;&gt;Sua Mensagem&lt;/label&gt;
+                            &lt;textarea rows=&quot;4&quot; placeholder=&quot;Descreva a data desejada ou dúvidas...&quot; class=&quot;w-full bg-brand-navy border border-slate-700 rounded-xl py-3 px-4 text-white text-sm focus:border-brand-teal focus:outline-none&quot;&gt;&lt;/textarea&gt;
+                        &lt;/div&gt;
+                        &lt;button type=&quot;submit&quot; class=&quot;w-full bg-brand-teal hover:bg-brand-ocean text-white font-bold py-4 rounded-xl shadow-lg transition-all&quot;&gt;
+                            Enviar Mensagem
+                        &lt;/button&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- FOOTER --&gt;
+    &lt;footer class=&quot;bg-brand-navy border-t border-slate-800 py-12 px-4 sm:px-6 lg:px-8&quot;&gt;
+        &lt;div class=&quot;max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left&quot;&gt;
+            &lt;div&gt;
+                &lt;span class=&quot;text-2xl font-black tracking-wider text-white font-heading&quot;&gt;TUR&lt;span class=&quot;text-brand-teal&quot;&gt;OCEANIA&lt;/span&gt;&lt;/span&gt;
+                &lt;p class=&quot;text-xs text-slate-400 mt-1&quot;&gt;© 2026 TurOceania Turismo Náutico Ltda. Todos os direitos reservados.&lt;/p&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;flex items-center space-x-6&quot;&gt;
+                &lt;a href=&quot;https://www.instagram.com/turoceania//turoceania.oficial&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; class=&quot;w-10 h-10 rounded-full glass-panel flex items-center justify-center text-slate-300 hover:text-brand-teal hover:border-brand-teal transition-all&quot;&gt;
+                    &lt;i class=&quot;fa-brands fa-instagram&quot;&gt;&lt;/i&gt;
+                &lt;/a&gt;
+                &lt;a href=&quot;https://wa.me/5522981179214&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; aria-label=&quot;WhatsApp&quot; class=&quot;w-10 h-10 rounded-full glass-panel flex items-center justify-center text-slate-300 hover:text-brand-teal hover:border-brand-teal transition-all&quot;&gt;
+                    &lt;i class=&quot;fa-brands fa-whatsapp&quot;&gt;&lt;/i&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+
+    &lt;!-- Floating WhatsApp Button --&gt;
+    &lt;a href=&quot;https://wa.me/5522981179214?text=Ol%C3%A1%21+Gostaria+de+saber+mais+sobre+os+passeios+da+TurOceania.&quot; target=&quot;_blank&quot; class=&quot;fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-transform hover:scale-110 glow-button&quot;&gt;
+        &lt;i class=&quot;fa-brands fa-whatsapp text-3xl&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+
+    &lt;!-- DETAILS / BOOKING MODAL --&gt;
+    &lt;div id=&quot;booking-modal&quot; class=&quot;fixed inset-0 z-50 bg-brand-navy/90 backdrop-blur-md hidden flex items-center justify-center p-4 overflow-y-auto&quot;&gt;
+        &lt;div class=&quot;glass-panel w-full max-w-2xl rounded-3xl border border-brand-teal/40 p-6 sm:p-8 relative my-8&quot;&gt;
+            &lt;button onclick=&quot;closeBookingModal()&quot; class=&quot;absolute top-5 right-5 text-slate-400 hover:text-white text-2xl&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-xmark&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+
+            &lt;div id=&quot;modal-content&quot;&gt;
+                &lt;!-- Injected dynamically via JavaScript --&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- VOUCHER ISSUANCE MODAL (Confirmation) --&gt;
+    &lt;div id=&quot;voucher-modal&quot; class=&quot;fixed inset-0 z-50 bg-brand-navy/95 backdrop-blur-md hidden flex items-center justify-center p-4 overflow-y-auto&quot;&gt;
+        &lt;div class=&quot;glass-panel w-full max-w-lg rounded-3xl border border-brand-teal p-6 sm:p-8 text-center relative my-8&quot;&gt;
+            &lt;button onclick=&quot;closeVoucherModal()&quot; class=&quot;absolute top-5 right-5 text-slate-400 hover:text-white text-2xl&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-xmark&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+
+            &lt;div class=&quot;w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-3xl mx-auto mb-4 border border-emerald-500/40&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-check&quot;&gt;&lt;/i&gt;
+            &lt;/div&gt;
+
+            &lt;h3 class=&quot;text-2xl font-bold text-white font-heading&quot;&gt;Solicitação Gerada com Sucesso!&lt;/h3&gt;
+            &lt;p class=&quot;text-xs text-slate-300 mt-1&quot;&gt;Use este código como referência da solicitação e confirme a disponibilidade pelo WhatsApp.&lt;/p&gt;
+
+            &lt;!-- Interactive Voucher Card --&gt;
+            &lt;div id=&quot;printable-voucher&quot; class=&quot;my-6 p-6 bg-white text-slate-900 rounded-2xl text-left shadow-2xl relative overflow-hidden&quot;&gt;
+                &lt;div class=&quot;flex justify-between items-center border-b pb-3 mb-3 border-slate-200&quot;&gt;
+                    &lt;div&gt;
+                        &lt;p class=&quot;font-black text-lg text-slate-900 tracking-wider&quot;&gt;TUR&lt;span class=&quot;text-brand-ocean&quot;&gt;OCEANIA&lt;/span&gt;&lt;/p&gt;
+                        &lt;p class=&quot;text-[10px] text-slate-500 uppercase font-bold&quot;&gt;Comprovante de Solicitação&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;span id=&quot;v-code&quot; class=&quot;text-xs font-mono font-bold bg-slate-100 text-brand-ocean px-2 py-1 rounded border&quot;&gt;TO-98231&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;space-y-2 text-xs&quot;&gt;
+                    &lt;p&gt;&lt;strong&gt;Titular:&lt;/strong&gt; &lt;span id=&quot;v-name&quot;&gt;Cliente TurOceania&lt;/span&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;strong&gt;Experiência:&lt;/strong&gt; &lt;span id=&quot;v-tour&quot;&gt;Lancha VIP Arraial&lt;/span&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;strong&gt;Data de Embarque:&lt;/strong&gt; &lt;span id=&quot;v-date&quot;&gt;A confirmar via WhatsApp&lt;/span&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;strong&gt;Passageiros:&lt;/strong&gt; &lt;span id=&quot;v-people&quot;&gt;4 Pessoas&lt;/span&gt;&lt;/p&gt;
+                    &lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; &lt;span class=&quot;text-brand-ocean font-bold&quot;&gt;✓ Aguardando confirmação&lt;/span&gt;&lt;/p&gt;
+                &lt;/div&gt;
+
+                &lt;!-- QR Code Container --&gt;
+                &lt;div class=&quot;mt-4 pt-4 border-t border-slate-200 flex items-center justify-between&quot;&gt;
+                    &lt;div&gt;
+                        &lt;p class=&quot;text-[10px] text-slate-500&quot;&gt;Código de referência da solicitação&lt;/p&gt;
+                        &lt;p class=&quot;text-[9px] text-slate-400&quot;&gt;Apresente impresso ou no celular.&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div id=&quot;qrcode&quot; class=&quot;bg-white p-1 rounded border&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;flex flex-col sm:flex-row gap-3&quot;&gt;
+                &lt;button onclick=&quot;window.print()&quot; class=&quot;w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 rounded-xl text-sm transition-all flex items-center justify-center gap-2&quot;&gt;
+                    &lt;i class=&quot;fa-solid fa-print&quot;&gt;&lt;/i&gt;
+                    &lt;span&gt;Imprimir Voucher&lt;/span&gt;
+                &lt;/button&gt;
+                &lt;button type=&quot;button&quot; onclick=&quot;closeVoucherModal()&quot; class=&quot;w-full bg-brand-teal hover:bg-brand-ocean text-white font-bold py-3 rounded-xl text-sm transition-all&quot;&gt;
+                    Concluir
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // Tour Catalog Data Object
+        const CATALOG_DATA = [
+            {
+                id: 1,
+                title: &quot;Lancha VIP Privativa Arraial&quot;,
+                city: &quot;arraial&quot;,
+                category: &quot;lancha&quot;,
+                price: 2200,
+                priceUnit: &quot;por passeio (Até 10 pax)&quot;,
+                capacity: &quot;10 Passageiros&quot;,
+                duration: &quot;4 Horas de Navegação&quot;,
+                location: &quot;Praia dos Anjos, Arraial do Cabo&quot;,
+                image: &quot;https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot;,
+                description: &quot;Roteiro exclusivo pelas águas cristalinas do Pontal do Atalaia, Ilha do Farol e Fenda de Nossa Senhora. Inclui combustível, marinheiro habilitado, coolers com gelo e som Bluetooth.&quot;,
+                highlights: [&quot;Privativo para seu grupo&quot;, &quot;Parada para mergulho&quot;, &quot;Cooler e som inclusos&quot;, &quot;Fotos de alta resolução&quot;]
+            },
+            {
+                id: 2,
+                title: &quot;Passeio de Escuna Completo Búzios&quot;,
+                city: &quot;buzios&quot;,
+                category: &quot;escuna&quot;,
+                price: 120,
+                priceUnit: &quot;por pessoa&quot;,
+                capacity: &quot;Embarcação Ampla&quot;,
+                duration: &quot;3 Horas de Tour&quot;,
+                location: &quot;Cais do Centro, Búzios&quot;,
+                image: &quot;https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot;,
+                description: &quot;Navegação por 12 praias e 3 ilhas paradisíacas de Búzios com paradas para banho na Praia da Tartaruga e João Fernandes. Serviço de bar a bordo e animação com guia.&quot;,
+                highlights: [&quot;3 paradas de mergulho&quot;, &quot;Serviço de bar e petiscos&quot;, &quot;Guia bilíngue&quot;, &quot;Máscaras de snorkel&quot;]
+            },
+            {
+                id: 3,
+                title: &quot;Jet Ski Sea-Doo Extreme Cabo Frio&quot;,
+                city: &quot;cabofrio&quot;,
+                category: &quot;jetski&quot;,
+                price: 450,
+                priceUnit: &quot;por hora&quot;,
+                capacity: &quot;Até 2 Pessoas&quot;,
+                duration: &quot;1 Hora de Aventura&quot;,
+                location: &quot;Canal do Itajuru, Cabo Frio&quot;,
+                image: &quot;https://images.unsplash.com/photo-1559310589-2673bfe16970?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot;,
+                description: &quot;Sinta a adrenalina de pilotar um Jet Ski moderno de alta performance pelas águas calmas de Cabo Frio. Acompanha coletes homologados e instrução rápida de segurança.&quot;,
+                highlights: [&quot;Equipamentos de segurança&quot;, &quot;Instrução inclusa&quot;, &quot;Área liberada segura&quot;, &quot;Fotos da decolagem&quot;]
+            },
+            {
+                id: 4,
+                title: &quot;Catamarã Deluxe Pôr do Sol Búzios&quot;,
+                city: &quot;buzios&quot;,
+                category: &quot;escuna&quot;,
+                price: 180,
+                priceUnit: &quot;por pessoa&quot;,
+                capacity: &quot;Até 40 Pessoas&quot;,
+                duration: &quot;2h30m no Pôr do Sol&quot;,
+                location: &quot;Porto da Barra, Búzios&quot;,
+                image: &quot;https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot;,
+                description: &quot;Passeio romântico e relaxante ao entardecer com Welcome Drink de espumante, mesa de frutas e DJ ao vivo comandando a playlist lounge.&quot;,
+                highlights: [&quot;Drink de boas-vindas&quot;, &quot;Vista inesquecível do sol&quot;, &quot;DJ a bordo&quot;, &quot;Espaço lounge com estofados&quot;]
+            },
+            {
+                id: 5,
+                title: &quot;Lancha Sport Intermarine 38&quot;,
+                city: &quot;arraial&quot;,
+                category: &quot;lancha&quot;,
+                price: 3500,
+                priceUnit: &quot;por passeio (Até 14 pax)&quot;,
+                capacity: &quot;14 Passageiros&quot;,
+                duration: &quot;5 Horas VIP&quot;,
+                location: &quot;Marina de Arraial do Cabo&quot;,
+                image: &quot;https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot;,
+                description: &quot;Embarcação de alto padrão com camarote, banheiro privativo, churrasqueira náutica a carvão e stand-up paddle para uso durante as paradas.&quot;,
+                highlights: [&quot;Churrasqueira inclusa&quot;, &quot;Stand-Up Paddle&quot;, &quot;Cabine climatizada&quot;, &quot;Sistema de som de alta potência&quot;]
+            },
+            {
+                id: 6,
+                title: &quot;Expedição Ilha do Papagaio Cabo Frio&quot;,
+                city: &quot;cabofrio&quot;,
+                category: &quot;escuna&quot;,
+                price: 140,
+                priceUnit: &quot;por pessoa&quot;,
+                capacity: &quot;Grupo Familiar&quot;,
+                duration: &quot;4 Horas&quot;,
+                location: &quot;Praia do Forte, Cabo Frio&quot;,
+                image: &quot;https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot;,
+                description: &quot;Passeio marítimo focado em ecoturismo e observação de tartarugas na Ilha do Papagaio, com parada especial para almoço em restaurante flutuante.&quot;,
+                highlights: [&quot;Mergulho com tartarugas&quot;, &quot;Ideal para crianças&quot;, &quot;Almoço opcional&quot;, &quot;Equipe de biólogos&quot;]
+            }
+        ];
+
+        // Render Catalog Cards Function
+        function renderCatalog(items) {
+            const grid = document.getElementById(&#x27;catalog-grid&#x27;);
+            grid.innerHTML = &#x27;&#x27;;
+
+            if (!items.length) {
+                grid.innerHTML = `
+                    &lt;div class=&quot;md:col-span-2 lg:col-span-3 glass-panel rounded-2xl p-10 text-center&quot;&gt;
+                        &lt;i class=&quot;fa-solid fa-compass text-4xl text-brand-teal mb-4&quot;&gt;&lt;/i&gt;
+                        &lt;h3 class=&quot;text-xl font-bold text-white&quot;&gt;Nenhuma opção encontrada&lt;/h3&gt;
+                        &lt;p class=&quot;text-sm text-slate-400 mt-2&quot;&gt;Tente alterar o destino ou o tipo de experiência.&lt;/p&gt;
+                        &lt;button type=&quot;button&quot; onclick=&quot;filterCatalog(&#x27;todos&#x27;, document.querySelector(&#x27;.catalog-filter-btn&#x27;))&quot;
+                            class=&quot;mt-5 bg-brand-teal hover:bg-brand-ocean text-white font-bold px-5 py-3 rounded-xl text-sm&quot;&gt;
+                            Ver todos os passeios
+                        &lt;/button&gt;
+                    &lt;/div&gt;`;
+                return;
+            }
+
+            items.forEach(item =&gt; {
+                const card = document.createElement(&#x27;div&#x27;);
+                card.className = &#x27;glass-card rounded-2xl overflow-hidden flex flex-col justify-between group&#x27;;
+                card.innerHTML = `
+                    &lt;div&gt;
+                        &lt;div class=&quot;h-52 bg-cover bg-center relative&quot; style=&quot;background-image: url(&#x27;${item.image}&#x27;);&quot;&gt;
+                            &lt;span class=&quot;absolute top-3 right-3 bg-brand-navy/90 text-brand-teal text-xs font-bold px-3 py-1 rounded-full border border-brand-teal/30&quot;&gt;
+                                ${item.city.toUpperCase()}
+                            &lt;/span&gt;
+                            &lt;span class=&quot;absolute bottom-3 left-3 bg-brand-navy/90 text-white text-xs font-semibold px-2.5 py-1 rounded-md flex items-center gap-1&quot;&gt;
+                                &lt;i class=&quot;fa-solid fa-clock text-brand-teal&quot;&gt;&lt;/i&gt; ${item.duration}
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;p-6 space-y-3&quot;&gt;
+                            &lt;h3 class=&quot;font-bold text-xl text-white group-hover:text-brand-teal transition-colors&quot;&gt;${item.title}&lt;/h3&gt;
+                            &lt;p class=&quot;text-xs text-slate-400 flex items-center gap-1&quot;&gt;
+                                &lt;i class=&quot;fa-solid fa-location-dot text-brand-coral&quot;&gt;&lt;/i&gt; ${item.location}
+                            &lt;/p&gt;
+                            &lt;p class=&quot;text-sm text-slate-300 line-clamp-2&quot;&gt;${item.description}&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;px-6 pb-6 pt-2 border-t border-slate-800/80 flex items-center justify-between mt-4&quot;&gt;
+                        &lt;div&gt;
+                            &lt;span class=&quot;text-[10px] uppercase text-slate-400 block font-semibold&quot;&gt;A partir de&lt;/span&gt;
+                            &lt;span class=&quot;text-xl font-black text-white font-heading&quot;&gt;R$ ${item.price}&lt;/span&gt;
+                            &lt;span class=&quot;text-[10px] text-slate-400&quot;&gt; ${item.priceUnit}&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;button onclick=&quot;openTourDetails(${item.id})&quot; class=&quot;bg-brand-teal hover:bg-brand-ocean text-white font-bold px-4 py-2.5 rounded-xl text-xs transition-all shadow-md&quot;&gt;
+                            Detalhes &amp; Reservar
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter Catalog logic
+        function filterCatalog(category, clickedButton = null) {
+            const buttons = document.querySelectorAll(&#x27;.catalog-filter-btn&#x27;);
+
+            buttons.forEach(btn =&gt; {
+                btn.classList.remove(&#x27;active&#x27;, &#x27;bg-brand-teal&#x27;, &#x27;text-white&#x27;);
+                btn.classList.add(&#x27;glass-panel&#x27;, &#x27;text-slate-300&#x27;);
+            });
+
+            const activeButton = clickedButton || Array.from(buttons).find(btn =&gt;
+                btn.getAttribute(&#x27;onclick&#x27;)?.includes(`&#x27;${category}&#x27;`)
+            );
+
+            if (activeButton) {
+                activeButton.classList.add(&#x27;active&#x27;, &#x27;bg-brand-teal&#x27;, &#x27;text-white&#x27;);
+                activeButton.classList.remove(&#x27;glass-panel&#x27;, &#x27;text-slate-300&#x27;);
+            }
+
+            const filtered = category === &#x27;todos&#x27;
+                ? CATALOG_DATA
+                : CATALOG_DATA.filter(item =&gt; item.category === category);
+
+            renderCatalog(filtered);
+
+            // Mantém a seção visível depois do filtro.
+            document.getElementById(&#x27;experiencias&#x27;)?.scrollIntoView({
+                behavior: &#x27;smooth&#x27;,
+                block: &#x27;start&#x27;
+            });
+        }
+
+        // Hero Search Submit Handler
+        function handleHeroSearch(e) {
+            e.preventDefault();
+
+            const city = document.getElementById(&#x27;search-city&#x27;).value;
+            const category = document.getElementById(&#x27;search-category&#x27;).value;
+            const date = document.getElementById(&#x27;search-date&#x27;).value;
+            const people = document.getElementById(&#x27;search-people&#x27;).value;
+
+            let filtered = [...CATALOG_DATA];
+
+            if (city !== &#x27;todos&#x27;) {
+                filtered = filtered.filter(item =&gt; item.city === city);
+            }
+
+            if (category !== &#x27;todos&#x27;) {
+                filtered = filtered.filter(item =&gt; item.category === category);
+            }
+
+            // Guarda os filtros escolhidos para facilitar a consulta do cliente.
+            window.lastSearch = { city, category, date, people };
+
+            renderCatalog(filtered);
+            document.getElementById(&#x27;experiencias&#x27;).scrollIntoView({ behavior: &#x27;smooth&#x27;, block: &#x27;start&#x27; });
+        }
+
+        // Open Tour Details Modal
+        function openTourDetails(id) {
+            const item = CATALOG_DATA.find(x =&gt; x.id === id);
+            if (!item) return;
+
+            const modal = document.getElementById(&#x27;booking-modal&#x27;);
+            const content = document.getElementById(&#x27;modal-content&#x27;);
+
+            content.innerHTML = `
+                &lt;div class=&quot;space-y-6&quot;&gt;
+                    &lt;div class=&quot;h-60 rounded-2xl bg-cover bg-center relative&quot; style=&quot;background-image: url(&#x27;${item.image}&#x27;)&quot;&gt;
+                        &lt;span class=&quot;absolute top-4 right-4 bg-brand-navy text-brand-teal font-bold text-xs px-3 py-1 rounded-full border border-brand-teal&quot;&gt;
+                            ${item.capacity}
+                        &lt;/span&gt;
+                    &lt;/div&gt;
+
+                    &lt;div&gt;
+                        &lt;h3 class=&quot;text-2xl font-bold text-white font-heading&quot;&gt;${item.title}&lt;/h3&gt;
+                        &lt;p class=&quot;text-xs text-slate-400 mt-1&quot;&gt;&lt;i class=&quot;fa-solid fa-location-dot text-brand-coral&quot;&gt;&lt;/i&gt; ${item.location}&lt;/p&gt;
+                    &lt;/div&gt;
+
+                    &lt;p class=&quot;text-sm text-slate-300 leading-relaxed&quot;&gt;${item.description}&lt;/p&gt;
+
+                    &lt;div&gt;
+                        &lt;h4 class=&quot;text-xs uppercase tracking-wider text-brand-teal font-bold mb-2&quot;&gt;Destaques da Experiência:&lt;/h4&gt;
+                        &lt;div class=&quot;grid grid-cols-1 sm:grid-cols-2 gap-2&quot;&gt;
+                            ${item.highlights.map(h =&gt; `&lt;div class=&quot;text-xs text-slate-200 bg-brand-navy/60 p-2 rounded-lg border border-slate-700/50 flex items-center gap-1.5&quot;&gt;&lt;i class=&quot;fa-solid fa-check text-brand-teal&quot;&gt;&lt;/i&gt; ${h}&lt;/div&gt;`).join(&#x27;&#x27;)}
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&quot;pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4&quot;&gt;
+                        &lt;div&gt;
+                            &lt;span class=&quot;text-xs text-slate-400 block&quot;&gt;Investimento:&lt;/span&gt;
+                            &lt;span class=&quot;text-3xl font-black text-brand-teal font-heading&quot;&gt;R$ ${item.price.toLocaleString(&#x27;pt-BR&#x27;)}&lt;/span&gt;
+                            &lt;span class=&quot;text-xs text-slate-400&quot;&gt; ${item.priceUnit}&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;button type=&quot;button&quot; onclick=&quot;confirmBooking(${item.id})&quot; class=&quot;w-full sm:w-auto bg-brand-coral hover:bg-brand-coralHover text-white font-extrabold px-6 py-3.5 rounded-xl text-sm transition-all shadow-xl glow-button&quot;&gt;
+                            &lt;i class=&quot;fa-brands fa-whatsapp mr-1&quot;&gt;&lt;/i&gt; Solicitar Reserva
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            `;
+
+            modal.classList.remove(&#x27;hidden&#x27;);
+            document.body.classList.add(&#x27;overflow-hidden&#x27;);
+        }
+
+        function openBookingModal() {
+            openTourDetails(1);
+        }
+
+        function closeBookingModal() {
+            document.getElementById(&#x27;booking-modal&#x27;).classList.add(&#x27;hidden&#x27;);
+            document.body.classList.remove(&#x27;overflow-hidden&#x27;);
+        }
+
+        function quickReserve(title) {
+            const item = CATALOG_DATA.find(x =&gt; x.title === title);
+            if (item) {
+                openTourDetails(item.id);
+            } else {
+                confirmBooking(title);
+            }
+        }
+
+        // Confirm Booking and generate a local pre-reservation voucher.
+        // The actual availability/payment must still be confirmed with the company.
+        function confirmBooking(tourOrId) {
+            closeBookingModal();
+
+            const item = typeof tourOrId === &#x27;number&#x27;
+                ? CATALOG_DATA.find(x =&gt; x.id === tourOrId)
+                : null;
+
+            const tourTitle = item ? item.title : String(tourOrId);
+            const randomCode = &#x27;TO-&#x27; + Math.floor(10000 + Math.random() * 90000);
+
+            const dateInput = document.getElementById(&#x27;search-date&#x27;);
+            const peopleInput = document.getElementById(&#x27;search-people&#x27;);
+            const selectedDate = dateInput &amp;&amp; dateInput.value
+                ? new Date(dateInput.value + &#x27;T12:00:00&#x27;).toLocaleDateString(&#x27;pt-BR&#x27;)
+                : &#x27;A confirmar via WhatsApp&#x27;;
+
+            document.getElementById(&#x27;v-code&#x27;).innerText = randomCode;
+            document.getElementById(&#x27;v-name&#x27;).innerText = &#x27;Cliente TurOceania&#x27;;
+            document.getElementById(&#x27;v-tour&#x27;).innerText = tourTitle;
+            document.getElementById(&#x27;v-date&#x27;).innerText = selectedDate;
+            document.getElementById(&#x27;v-people&#x27;).innerText = peopleInput ? peopleInput.value.replace(&#x27;-&#x27;, &#x27; a &#x27;).replace(&#x27;+&#x27;, &#x27;+&#x27;) + &#x27; pessoas&#x27; : &#x27;A confirmar&#x27;;
+
+            const qrContainer = document.getElementById(&#x27;qrcode&#x27;);
+            qrContainer.innerHTML = &#x27;&#x27;;
+
+            if (typeof QRCode !== &#x27;undefined&#x27;) {
+                new QRCode(qrContainer, {
+                    text: `Pré-reserva ${randomCode} | ${tourTitle}`,
+                    width: 64,
+                    height: 64,
+                    colorDark: &quot;#028090&quot;,
+                    colorLight: &quot;#ffffff&quot;
+                });
+            }
+
+            const voucherModal = document.getElementById(&#x27;voucher-modal&#x27;);
+            voucherModal.classList.remove(&#x27;hidden&#x27;);
+            document.body.classList.add(&#x27;overflow-hidden&#x27;);
+
+            window.currentBooking = {
+                code: randomCode,
+                tour: tourTitle,
+                date: selectedDate,
+                people: document.getElementById(&#x27;v-people&#x27;).innerText
+            };
+
+            const message = [
+                &#x27;Olá TurOceania! Gostaria de solicitar esta experiência:&#x27;,
+                `Experiência: ${tourTitle}`,
+                `Data: ${selectedDate}`,
+                `Passageiros: ${document.getElementById(&#x27;v-people&#x27;).innerText}`,
+                `Código da solicitação: ${randomCode}`
+            ].join(&#x27;\n&#x27;);
+            window.open(`https://wa.me/5522981179214?text=${encodeURIComponent(message)}`, &#x27;_blank&#x27;, &#x27;noopener,noreferrer&#x27;);
+        }
+
+        function closeVoucherModal() {
+            document.getElementById(&#x27;voucher-modal&#x27;).classList.add(&#x27;hidden&#x27;);
+            document.body.classList.remove(&#x27;overflow-hidden&#x27;);
+        }
+
+        // Wizard Real-Time Estimate Calculation
+        function updateWizardEstimate() {
+            let total = 0;
+            const vesselInput = document.querySelector(&#x27;input[name=&quot;wiz-vessel&quot;]:checked&#x27;);
+
+            if (vesselInput) {
+                total += parseFloat(vesselInput.dataset.price || 0);
+            }
+
+            const extras = document.querySelectorAll(&#x27;input[name=&quot;wiz-extra&quot;]:checked&#x27;);
+            extras.forEach(item =&gt; {
+                total += parseFloat(item.dataset.price || 0);
+            });
+
+            const people = parseInt(document.getElementById(&#x27;wiz-people-range&#x27;).value, 10);
+            document.getElementById(&#x27;wiz-people-count&#x27;).innerText = `${people} ${people === 1 ? &#x27;Pessoa&#x27; : &#x27;Pessoas&#x27;}`;
+
+            if (vesselInput &amp;&amp; vesselInput.value.includes(&#x27;Escuna&#x27;)) {
+                total = parseFloat(vesselInput.dataset.price || 0) * people;
+                extras.forEach(item =&gt; {
+                    total += parseFloat(item.dataset.price || 0);
+                });
+            }
+
+            document.getElementById(&#x27;wiz-total-price&#x27;).innerText = total.toLocaleString(&#x27;pt-BR&#x27;);
+        }
+
+        function handleWizardSubmit(e) {
+            e.preventDefault();
+
+            const city = document.querySelector(&#x27;input[name=&quot;wiz-city&quot;]:checked&#x27;)?.value || &#x27;&#x27;;
+            const vessel = document.querySelector(&#x27;input[name=&quot;wiz-vessel&quot;]:checked&#x27;)?.value || &#x27;&#x27;;
+            const people = document.getElementById(&#x27;wiz-people-range&#x27;).value;
+            const price = document.getElementById(&#x27;wiz-total-price&#x27;).innerText;
+            const extras = Array.from(document.querySelectorAll(&#x27;input[name=&quot;wiz-extra&quot;]:checked&#x27;))
+                .map(cb =&gt; cb.value)
+                .join(&#x27;, &#x27;) || &#x27;Nenhum extra selecionado&#x27;;
+
+            const message = [
+                &#x27;Olá TurOceania! Montei meu roteiro no site:&#x27;,
+                &#x27;&#x27;,
+                `Cidade: ${city}`,
+                `Embarcação: ${vessel}`,
+                `Pessoas: ${people}`,
+                `Extras: ${extras}`,
+                `Estimativa: R$ ${price}`,
+                &#x27;&#x27;,
+                &#x27;Gostaria de verificar a disponibilidade de datas!&#x27;
+            ].join(&#x27;\n&#x27;);
+
+            window.open(`https://wa.me/5522981179214?text=${encodeURIComponent(message)}`, &#x27;_blank&#x27;, &#x27;noopener,noreferrer&#x27;);
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const name = form.querySelector(&#x27;input[type=&quot;text&quot;]&#x27;)?.value.trim() || &#x27;&#x27;;
+            const whatsapp = form.querySelector(&#x27;input[type=&quot;tel&quot;]&#x27;)?.value.trim() || &#x27;&#x27;;
+            const interest = form.querySelector(&#x27;select&#x27;)?.value || &#x27;&#x27;;
+            const messageField = form.querySelector(&#x27;textarea&#x27;)?.value.trim() || &#x27;&#x27;;
+
+            const message = [
+                &#x27;Olá TurOceania! Gostaria de atendimento.&#x27;,
+                &#x27;&#x27;,
+                `Nome: ${name}`,
+                `WhatsApp: ${whatsapp}`,
+                `Interesse: ${interest}`,
+                `Mensagem: ${messageField || &#x27;Não informada&#x27;}`
+            ].join(&#x27;\n&#x27;);
+
+            window.open(`https://wa.me/5522981179214?text=${encodeURIComponent(message)}`, &#x27;_blank&#x27;, &#x27;noopener,noreferrer&#x27;);
+            form.reset();
+        }
+
+        // Initialize App on DOM Load
+        window.addEventListener(&#x27;DOMContentLoaded&#x27;, () =&gt; {
+            const dateInput = document.getElementById(&#x27;search-date&#x27;);
+            if (dateInput) {
+                const today = new Date();
+                const yyyy = today.getFullYear();
+                const mm = String(today.getMonth() + 1).padStart(2, &#x27;0&#x27;);
+                const dd = String(today.getDate()).padStart(2, &#x27;0&#x27;);
+                dateInput.min = `${yyyy}-${mm}-${dd}`;
+            }
+
+            // Render initial catalog
+            renderCatalog(CATALOG_DATA);
+
+            // Mobile menu toggle
+            const menuBtn = document.getElementById(&#x27;mobile-menu-btn&#x27;);
+            const mobileMenu = document.getElementById(&#x27;mobile-menu&#x27;);
+            if (menuBtn &amp;&amp; mobileMenu) {
+                menuBtn.addEventListener(&#x27;click&#x27;, () =&gt; {
+                    mobileMenu.classList.toggle(&#x27;hidden&#x27;);
+                });
+            }
+
+            // Initialize wizard calculation
+            updateWizardEstimate();
+
+            // Fecha modais com ESC.
+            document.addEventListener(&#x27;keydown&#x27;, (event) =&gt; {
+                if (event.key === &#x27;Escape&#x27;) {
+                    closeBookingModal();
+                    closeVoucherModal();
+                }
+            });
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"
+            loading="lazy"
+            referrerpolicy="no-referrer">
+          </iframe>
+        </div>
+
+        <div class="site-full-actions">
+          <a class="btn btn-primary" href="https://www.instagram.com/turoceania/" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram"></i> @turoceania
+          </a>
+          <a class="btn btn-secondary" href="#contato">
+            <i class="fa-solid fa-arrow-down"></i> Voltar ao portfólio
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="processo" class="section">
+      <div class="wrap">
+        <div class="eyebrow">Processo</div>
+        <h2 class="section-title">Como um projeto ganha forma.</h2>
+        <div class="process" style="margin-top:42px">
+          <div class="step"><b>01</b><h3>Ideia</h3><p>Entender o negócio e a proposta.</p></div>
+          <div class="step"><b>02</b><h3>Estrutura</h3><p>Organizar conteúdo e navegação.</p></div>
+          <div class="step"><b>03</b><h3>Interface</h3><p>Definir a experiência visual.</p></div>
+          <div class="step"><b>04</b><h3>Código</h3><p>Construir a experiência no navegador.</p></div>
+          <div class="step"><b>05</b><h3>Testes</h3><p>Ajustar detalhes e responsividade.</p></div>
+          <div class="step"><b>06</b><h3>Entrega</h3><p>Preparar o projeto para publicação.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="section">
+      <div class="wrap">
+        <div class="contact">
+          <div class="eyebrow">Contato</div>
+          <h2>Tem uma ideia?</h2>
+          <p>
+            O portfólio está preparado para receber novos projetos, informações profissionais
+            e outros trabalhos conforme forem desenvolvidos.
+          </p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="https://www.instagram.com/turoceania/" target="_blank" rel="noopener">
+              <i class="fa-brands fa-instagram"></i> Instagram da TurOceania
+            </a>
+            <a class="btn btn-secondary" href="mailto:seuemail@exemplo.com">
+              <i class="fa-regular fa-envelope"></i> E-mail profissional
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© 2026 • Portfólio profissional</span>
+      <span>Desenvolvimento Web • UI • Projetos digitais</span>
+    </div>
+  </footer>
+</body>
+</html>
