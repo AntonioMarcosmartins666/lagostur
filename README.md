@@ -1,6 +1,6 @@
 # 🌴 TurOceania
 
-![Capa TurOceania](./capa-turoceania.png)
+![Capa TurOceania](./ChatGPT%20Image%2024%20de%20set.%20de%202026,%2001_25_16.png)
 
 ## ✈️ Site institucional para empresa de turismo
 
