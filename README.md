@@ -22,7 +22,7 @@ O projeto foi criado com foco em apresentar os serviços turísticos de forma mo
 
 O site apresenta uma experiência visual voltada para o segmento de turismo, com informações sobre a empresa, serviços e formas de contato.
 
-![Demonstração do TurOceania](./NOME-DA-CAPTURA.png)
+
 
 ---
 
