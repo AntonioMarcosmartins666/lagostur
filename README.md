@@ -1,5 +1,7 @@
 # 🌴 TurOceania
 
+![Capa TurOceania](./capa-turoceania.png)
+
 ## ✈️ Site institucional para empresa de turismo
 
 O **TurOceania** é um projeto de site institucional desenvolvido para uma empresa do segmento de turismo.
